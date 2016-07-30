@@ -1,0 +1,65 @@
+kind: Template
+apiVersion: v1
+template: jenkins
+metadata:
+  name: jenkins
+objects:
+- kind: Service
+  apiVersion: v1
+  metadata:
+    name: jenkins
+    labels:
+      name: jenkins
+  spec:
+    ports:
+      - protocol: TCP
+        port: 8080
+        targetPort: 8080
+    selector:
+      name: jenkins
+- kind: Service
+  apiVersion: v1
+  metadata:
+    name: jenkins-agents
+    labels:
+      name: jenkins
+  spec:
+    ports:
+      - protocol: TCP
+        port: 50000
+        targetPort: 50000
+    selector:
+      name: jenkins
+- kind: DeploymentConfig
+  apiVersion: v1
+  metadata:
+    name: jenkins
+    labels:
+      name: jenkins
+  spec:
+    strategy:
+      type: Rolling
+    triggers:
+      - type: ConfigChange
+    replicas: 1
+    selector:
+      name: jenkins
+    template:
+      metadata:
+        labels:
+          name: jenkins
+      spec:
+        containers:
+          - name: jenkins
+            image: jenkins:latest
+            ports:
+              - containerPort: 8080
+                protocol: TCP
+              - containerPort: 50000
+                protocol: TCP
+            volumeMounts:
+              - name: jenkins-home
+                mountPath: /var/jenkins_home
+        volumes:
+          - name: jenkins-home
+            emptyDir:
