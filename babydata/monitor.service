@@ -1,0 +1,12 @@
+[Unit]
+Description=Network sniffer for baby buttons.
+After=network.target
+
+[Service]
+EnvironmentFile=/home/pi/monitor.env
+ExecStart=/home/pi/monitor.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
