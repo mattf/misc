@@ -1,0 +1,1 @@
+oadm policy add-scc-to-user privileged system:serviceaccount:myproject:default
