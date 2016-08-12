@@ -44,6 +44,7 @@ def make_action(kind):
 
 MAP = defaultdict(lambda: ('unknown', default_action))
 MAP['f0:27:2d:e5:48:f0'] = ("Glad", rate_limit(60, make_action(WET_DIAPER)))
+MAP['44:65:0d:74:ad:e0'] = ("Glad 1", rate_limit(60, make_action(WET_DIAPER)))
 MAP['f0:27:2d:1e:dc:ed'] = ("Cottonelle", rate_limit(60, make_action(POOP_DIAPER)))
 MAP['a0:02:dc:75:19:92'] = ("Greenies", rate_limit(60, make_action(FEED)))
 MAP['a0:02:dc:8a:23:29'] = ("Revitalift 0", rate_limit(60, make_action(AWAKE)))
