@@ -1,0 +1,5 @@
+oc login -u system:admin
+export REGISTRY=$(oc --namespace=default get svc docker-registry --template={{.spec.portalIP}}):5000
+oc login -u developer -p developer
+docker login -u developer -p $(oc whoami -t ) -e none $REGISTRY
+echo "Registry: $REGISTRY"

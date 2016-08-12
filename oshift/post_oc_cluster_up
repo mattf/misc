@@ -1,6 +1,0 @@
-#!/bin/sh -ex
-oc login -u system:admin
-REG_IP=$(oc --namespace=default get svc docker-registry --template={{.spec.portalIP}})
-oc login -u developer -p developer
-docker login -u developer -p $(oc whoami -t ) -e none $REG_IP:5000
-echo "Registry: $REG_IP:5000"
