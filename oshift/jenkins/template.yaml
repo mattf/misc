@@ -51,15 +51,27 @@ objects:
       spec:
         containers:
           - name: jenkins
-            image: jenkins:latest
+            image: ${REGISTRY}/myproject/openshift-jenkins:latest
             ports:
               - containerPort: 8080
                 protocol: TCP
               - containerPort: 50000
                 protocol: TCP
+            securityContext:
+              privileged: true
+              runAsUser: 0
             volumeMounts:
               - name: jenkins-home
                 mountPath: /var/jenkins_home
+              - name: docker-sock
+                mountPath: /var/run/docker.sock
         volumes:
           - name: jenkins-home
             emptyDir:
+          - name: docker-sock
+            hostPath:
+              path: /var/run/docker.sock
+
+parameters:
+- name: REGISTRY
+  required: true
