@@ -1,0 +1,66 @@
+# want docker actions
+docker-build-step:latest
+## dependencies
+docker-commons:latest
+authentication-tokens:latest
+icon-shim:latest
+credentials:latest
+
+# want github integration
+github:latest
+## dependencies
+plain-credentials:latest
+credentials:latest
+token-macro:latest
+git:latest
+git-client:latest
+ssh-credentials:latest
+matrix-project:latest
+junit:latest
+script-security:latest
+scm-api:latest
+workflow-scm-step:latest
+workflow-step-api:latest
+structs:latest
+parameterized-trigger:latest
+subversion:latest
+mapdb-api:latest
+matrix-project:latest
+promoted-builds:latest
+rebuild:latest
+job-dsl:latest
+vsphere-cloud:latest
+workflow-basic-steps:latest
+workflow-api:latest
+mailer:latest
+node-iterator-api:latest
+ssh-slaves:latest
+config-file-provider:latest
+managed-scripts:latest
+project-inheritance:latest
+maven-plugin:latest
+javadoc
+script-security:latest
+conditional-buildstep:latest
+run-condition:latest
+github-api:latest
+
+# Suggested plugins...
+#github-organization-folder:latest
+#cloudbees-folder:latest
+#timestamper:latest
+#workflow-aggregator:latest
+#ws-cleanup:latest
+#ant:latest
+#gradle:latest
+#pipeline-stage-view:latest
+#subversion:latest
+#ldap:latest
+#ssh-slaves:latest
+#email-ext:latest
+#mailer:latest
+#pam-auth:latest
+#matrix-auth:latest
+#credentials-binding:latest
+#build-timeout:latest
+#antisamy-markup-formatter:latest
