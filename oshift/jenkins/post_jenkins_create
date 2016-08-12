@@ -1,0 +1,2 @@
+echo "Web interface: http://$(oc get svc jenkins --template={{.spec.portalIP}}):8080"
+oc logs $(oc get po -o jsonpath='{.items[*].metadata.name}') | grep -A1 "following password"
